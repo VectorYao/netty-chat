@@ -15,7 +15,7 @@ import wiki.tony.chat.comet.initializer.TcpServerInitializer;
 
 /**
  * tcp server
- * <p>
+ * tcp协议的服务器端
  * Created by Tony on 4/13/16.
  */
 @Component("tcpChatServer")

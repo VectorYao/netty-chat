@@ -17,7 +17,7 @@ import wiki.tony.chat.comet.operation.Operation;
 
 /**
  * netty handler
- * <p>
+ * netty的事件处理逻辑
  * Created by Tony on 4/13/16.
  */
 @Component
@@ -35,10 +35,12 @@ public class ChatServerHandler extends SimpleChannelInboundHandler<Proto> {
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, Proto proto) throws Exception {
+        //根据操作值得到具体的处理类（AuthOperation或MessageOperation）
         Operation op = chatOperation.find(proto.getOperation());
         // execute operation
         if (op != null) {
             LOG.debug(proto.toString());
+            //调用具体处理类的处理动作
             op.action(ctx.channel(), proto);
         } else {
             LOG.warn("Not found operationId: " + proto.getOperation());

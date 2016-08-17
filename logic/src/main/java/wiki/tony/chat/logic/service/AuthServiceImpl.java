@@ -10,7 +10,7 @@ import wiki.tony.chat.base.service.AuthService;
 import wiki.tony.chat.logic.config.CachingConfig;
 
 /**
- * 受权
+ * 授权
  * <p>
  * Created by Tony on 4/14/16.
  */

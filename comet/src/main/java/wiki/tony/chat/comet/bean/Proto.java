@@ -1,8 +1,7 @@
 package wiki.tony.chat.comet.bean;
 
 /**
- * 协议
- * <p>
+ * 协议实体
  * Created by Tony on 4/13/16.
  */
 public class Proto {

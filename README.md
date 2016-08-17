@@ -1,4 +1,6 @@
-# netty-chat
+# netty-chat中文注释版
+
+添加注释和笔记，供自己阅读学习之用。(@[vectoryao](https://github.com/VectorYao))
 
 ### Protocol:
 

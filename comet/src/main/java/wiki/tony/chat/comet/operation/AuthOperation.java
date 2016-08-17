@@ -17,6 +17,8 @@ import wiki.tony.chat.base.util.JsonUtils;
 import wiki.tony.chat.comet.bean.Proto;
 
 /**
+ * 客户端连接认证
+ *
  * Created by Tony on 4/14/16.
  */
 @Component
@@ -42,17 +44,17 @@ public class AuthOperation extends AbstractOperation {
     public void action(Channel ch, Proto proto) throws Exception {
         AuthToken auth = JsonUtils.fromJson(proto.getBody(), AuthToken.class);
 
-        // check token
+        // 校验token值
         if (authService.auth(serverId, auth)) {
-            // put auth token
+            // 设置该channel的用户token值
             setAuthToken(ch, auth);
-            // message consumer
+            // 通知客户端
             addConsumerListener(ch, auth.getUserId());
             logger.debug("auth ok");
         } else {
             logger.debug("auth fail");
         }
-
+        //返回给客户端操作成功的消息
         proto.setOperation(OP_REPLY);
         ch.writeAndFlush(proto);
     }

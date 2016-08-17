@@ -13,8 +13,8 @@ import wiki.tony.chat.comet.bean.Proto;
 import java.util.List;
 
 /**
- * websocket codec
- * <p>
+ * webSocket codec
+ * webSocket协议的编解码器
  * Created by Tony on 4/14/16.
  */
 @Component

@@ -14,7 +14,7 @@ import wiki.tony.chat.comet.handler.ChatServerHandler;
 
 /**
  * netty initializer
- * <p>
+ * netty的初始化，设置事件处理handler
  * Created by Tony on 4/13/16.
  */
 @Component

@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * tcp codec
- * <p>
+ * tcp协议的编解码器，一般来说，codec必须放在channel的pipeline事件处理链的首部
  * Created by Tony on 4/14/16.
  */
 @Component
@@ -23,6 +23,16 @@ public class TcpProtoCodec extends MessageToMessageCodec<ByteBuf, Proto> {
 
     private Logger logger = LoggerFactory.getLogger(TcpProtoCodec.class);
 
+    /**
+     * tcp协议编码器，将Outbound类型的消息编码为ByteBuf对象
+     * ByteBuf消息的所包含的格式含义如下：
+     * [PacketLen : HeaderLen : Version : OperationSeqId : Body]
+     *
+     * @param channelHandlerContext Channel的上下文
+     * @param proto OutBound类型的消息对象
+     * @param list Handler处理完后得到的对象列表（供pipeline上的其他handler继续处理）
+     * @throws Exception
+     */
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Proto proto, List<Object> list) throws Exception {
         ByteBuf byteBuf = ByteBufAllocator.DEFAULT.buffer();
@@ -46,6 +56,14 @@ public class TcpProtoCodec extends MessageToMessageCodec<ByteBuf, Proto> {
         logger.debug("encode: {}", proto);
     }
 
+    /**
+     * tcp协议解码器，将接收到的ByteBuf类型的消息解码为Proto对象
+     * 正确使用的前提是知道encode的编码含义，故必须和encode配对使用
+     * @param channelHandlerContext Channel的上下文
+     * @param byteBuf 接受到的Inbound类型消息
+     * @param list Handler处理完后得到的对象列表
+     * @throws Exception
+     */
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         Proto proto = new Proto();
