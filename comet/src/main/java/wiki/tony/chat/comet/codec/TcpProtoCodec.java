@@ -53,7 +53,7 @@ public class TcpProtoCodec extends MessageToMessageCodec<ByteBuf, Proto> {
 
         list.add(byteBuf);
 
-        logger.debug("encode: {}", proto);
+//        logger.debug("encode: {}", proto);
     }
 
     /**
@@ -80,6 +80,6 @@ public class TcpProtoCodec extends MessageToMessageCodec<ByteBuf, Proto> {
 
         list.add(proto);
 
-        logger.debug("decode: {}", proto);
+//        logger.debug("decode: {}", proto);
     }
 }

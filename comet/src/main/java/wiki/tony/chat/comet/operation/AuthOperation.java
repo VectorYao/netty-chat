@@ -48,7 +48,7 @@ public class AuthOperation extends AbstractOperation {
         if (authService.auth(serverId, auth)) {
             // 设置该channel的用户token值
             setAuthToken(ch, auth);
-            // 通知客户端
+            // 绑定消息事件监听器
             addConsumerListener(ch, auth.getUserId());
             logger.debug("auth ok");
         } else {
@@ -68,7 +68,8 @@ public class AuthOperation extends AbstractOperation {
                 proto.setBody(message.getData());
                 ch.writeAndFlush(proto);
 
-                logger.debug("consumer: {}", proto);
+                //打印出接收到客户端的消息内容
+                logger.info("consumer: {}", proto);
             }
         });
     }

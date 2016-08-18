@@ -17,7 +17,7 @@ import wiki.tony.chat.comet.operation.Operation;
 
 /**
  * netty handler
- * netty的事件处理逻辑
+ * netty的服务器端事件处理逻辑
  * Created by Tony on 4/13/16.
  */
 @Component

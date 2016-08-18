@@ -26,6 +26,7 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void push(Message msg) {
+        logger.info("MessageServiceImpl!!!!!");
         logger.debug("producer:{} ", msg);
 
         MQMessage mqMessage = mqProducer.createMessage(MQTopics.MESSAGE + msg.getTo());

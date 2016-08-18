@@ -23,8 +23,8 @@
 
 ### Operation
 
-    AuthOperation -> decode<AuthToken> -> AuthService
-    MessageOperation -> decode<Message> -> MessageService
+    AuthOperation -> decode<AuthToken> -> AuthService （登录授权的流程）
+    MessageOperation -> decode<Message> -> MessageService （消息服务的流程，其中涉及到MQMessageListener的消息转发功能）
 
 ### MessageQueue
 
@@ -33,15 +33,22 @@
     MQConsumer
     MQMessageListener
 
-### Run
+### Run & Test
+	个人推荐使用Intellij IDEA来导入项目，直接可以运行。
+	首先，程序主入口在`wiki.tony.chat.comet.ChatApplication.java`中，运行main函数即可开启支持tcp协议和webSocket协议的服务器；
+	然后，分别打开客户端1（`wiki.tony.chat.comet.client.ChatClientOne.java`）和客户端2（`wiki.tony.chat.comet.client.ChatClientTwo.java`）;
+	最后，根据消息格式[消息接收方id:消息内容content]，输入消息的接收方id和消息内容。
 
-    mvn install
-    comet: mvn spring-boot:run
+	服务器端控制台截图：
+	![服务器端](http://7xj0si.com1.z0.glb.clouddn.com/nettychat1.jpg)
 
-### Test
+	客户端1控制台截图：
+    ![客户端1](http://7xj0si.com1.z0.glb.clouddn.com/nettychat2.jpg)
 
-    Tcp: comet -> test -> ChatClient
-    WebSocket: comet -> test -> websocket -> demo.html
+	客户端2控制台截图：
+    ![客户端1](http://7xj0si.com1.z0.glb.clouddn.com/nettychat3.jpg)
+	
+    实现了客户端1和客户端2的类似于QQ机制的双工通信。
     
 ### License
     

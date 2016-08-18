@@ -25,6 +25,9 @@ public class CachingConfig extends CachingConfigurerSupport {
 
     @Bean
     @Override
+    /**
+     * Spring 启动时自动加载该bean对象，用于客户端登录缓存管理
+     */
     public CacheManager cacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
 

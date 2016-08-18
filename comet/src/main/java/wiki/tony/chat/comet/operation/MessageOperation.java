@@ -35,11 +35,16 @@ public class MessageOperation extends AbstractOperation {
 
         Message msg = JsonUtils.fromJson(proto.getBody(), Message.class);
         msg.setFrom(getAuthToken(ch).getUserId());
+        //推送消息给接收方
         messageService.push(msg);
 
+        //设置msg消息的返回结果
         proto.setOperation(OP_REPLY);
+        Message res = new Message();
+        res.setTo(msg.getTo());
+        res.setContent("成功将消息发送给Client "+msg.getTo());
+        proto.setBody(JsonUtils.toJson(res).getBytes());
         ch.writeAndFlush(proto);
-
     }
 
 }
