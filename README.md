@@ -18,8 +18,8 @@
 
 ### Architecture:
 
-<img src="https://raw.githubusercontent.com/im-qq/netty-chat/master/docs/architecture.png" width="500">
-<img src="https://raw.githubusercontent.com/im-qq/netty-chat/master/docs/proto.png" width="800">
+<img src="https://github.com/VectorYao/netty-chat/blob/master/docs/architecture.png" width="500">
+<img src="https://github.com/VectorYao/netty-chat/blob/master/docs/proto.png" width="800">
 
 ### Operation
 
@@ -44,13 +44,16 @@
 最后，根据消息格式[消息接收方id:消息内容content]，输入消息的接收方id和消息内容。
 
 服务器端控制台截图：
-![服务器端](http://7xj0si.com1.z0.glb.clouddn.com/nettychat1.jpg)
+
+<img src="https://github.com/VectorYao/netty-chat/blob/master/docs/nettychat1.jpg" >
 
 客户端1控制台截图：
-![客户端1](http://7xj0si.com1.z0.glb.clouddn.com/nettychat2.jpg)
+
+<img src="https://github.com/VectorYao/netty-chat/blob/master/docs/nettychat2.jpg">
 
 客户端2控制台截图：
-![客户端1](http://7xj0si.com1.z0.glb.clouddn.com/nettychat3.jpg)
+
+<img src="https://github.com/VectorYao/netty-chat/blob/master/docs/nettychat3.jpg">
     
 实现了客户端1和客户端2的类似于QQ机制的双工通信。
     
